@@ -21,13 +21,18 @@
 			//Probaré el for en JS
 			var x;
 			var y;
-			for(x=10,y=10;x<500;x+=60,y+=60){
+			for(y=10;y<500;	y+=60){
+
+				for(x=10;x<500;x+=110){
+					contex.fillStyle="rgb(200,0,0)"; // color sin transparencia Rojo
+					contex.fillRect(x,y,50,50);	 // cuadrado
+				
+					contex.fillStyle="rgba(0,0,200,0.5)";//color con transparencia Azul
+					contex.fillRect(x+55,y,50,50);	// cuadrado
+
+				}
 			
-			contex.fillStyle="rgb(200,0,0)"; // color sin transparencia
-			contex.fillRect(x,y,55,50);	 // cuadrado
 			
-			contex.fillStyle="rgba(0,0,200,0.5)";//color con transparencia
-			contex.fillRect(x+20,y+20,55,50);	// cuadrado
 				
 				}
 			
