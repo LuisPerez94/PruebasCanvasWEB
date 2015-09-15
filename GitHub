@@ -1,0 +1,65 @@
+PRIMERO  decargamos git en nuestra computadora
+
+#apt-get install git
+
+(git es la tecnologia que administra todo el sistema de 
+versiones, github es el ambiente web que nos permite
+tener acceso a los repositorios, En linux no hay cliente
+gráfico para github(en windows y IOS sí) entonces debemos
+manejar nuestros archivos por consola :D keep calm and take 
+a look!)
+
+una vez que instalamos git vamos a configurar una cosas
+
+SEGUNDO configura tu nombre y correo
+
+esto para que cada vez que subas algo a github , este sepa
+quien fue el que lo subió puesto como cualquier cosa que
+subamos el libre ,cualquiera puede hacer y subir una modificación
+(un commit).
+
+para configurar, en la terminal tecleamos lo siguiente
+
+#git config --global user.name "el nombre con el que va a registrar el commit"
+
+#git config --global user.email tuemail
+
+listo !
+
+TERCERO clona mi repositorio :D
+
+primero crea un carpeta donde vas a tener las cosas que se descarguen
+despues dentro de esa carpeta abres una terminal y vas a iniciar un comando para que git
+sepa que esta carpeta es parte de un repositorio
+
+#git init
+
+depues clonas mi repositorio :D
+
+#git clone https://github.com/LuisPerez94/PruebasCanvasWEB.git
+
+No recuerdo si con esto se descargan los archivos , creo que si
+
+
+pero si no , siempre puedes descargar los archivos de este repositorio haciendo lo siguiente
+
+#git pull 
+
+
+
+CUARTO subir cosas al repositorio
+
+Normalmente vas a tener que modificar archivos que otros ya han modificado
+vas a agregar archivos nuevos etc. 
+
+#git add .  //con esto agregar en memoria local todos los cambios
+#git commit -m "mensaje que dirá las modificaciones que le hiciste al repo" //sigue en tu compu
+#git push // con esto se sube en linea y ya se guarda 
+
+
+al dar el push te pedira que des tu correo y contraseña 
+
+
+por el momento eso es lo básico :3
+
+
