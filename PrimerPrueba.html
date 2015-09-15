@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Prueba Canvas</title>
+		<style type="text/css"> 
+			#canvas{
+				border: solid #000 1px; 
+			}
+		</style>
+		<script type="application/javascript" language="javascript">
+			function draw(){
+			var canvas=document.getElementById('canvas');
+			var contex=canvas.getContext('2d');
+			contex.clearRect(0,0,500,500);
+			contex.fillStyle="rgba(0,200,0,1)";
+			contex.fillRect(10,10,50,50);
+		}
+		</script>
+		
+	</head>
+	<body>
+		<h1>Probando Canvas :)</h1>
+		<button onclick="draw()">Dibuja</button>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+</html>
