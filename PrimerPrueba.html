@@ -8,6 +8,15 @@
 			}
 		</style>
 		<script type="application/javascript" language="javascript">
+
+			function coordenada(x,y){		//Objecto coordenada para no andar cargando con muchas variables en el triangulo.
+				this.x=x;
+				this.y=y;
+			}
+			function triangulo(coordenada1,coordenada2,coordenada3)			//Objecto triangulo inicializado con 3 objectos coordenada
+			{
+				this.vertices= [coordenada1,coordenada2,coordenada3];		//arreglo de coordenadas para el triangulo
+			}
 			function draw(){
 			var canvas=document.getElementById('canvas');
 			var contex=canvas.getContext('2d');
@@ -21,9 +30,9 @@
 			//Probaré el for en JS
 			var x;
 			var y;
-			for(y=10;y<500;	y+=60){
+			for(y=10;y<500;	y+=60){ 	//For movimiento vertical
 
-				for(x=10;x<500;x+=110){
+				for(x=10;x<500;x+=110){		//For movimiento horizontal
 					contex.fillStyle="rgb(200,0,0)"; // color sin transparencia Rojo
 					contex.fillRect(x,y,50,50);	 // cuadrado
 				
@@ -38,12 +47,27 @@
 			
 			
 		}
+		function draw_triangule(){
+			var canvas=document.getElementById('canvas');
+			var context=canvas.getContext('2d');
+			//Objecto triangulo inicializado con variables coordenadas inicializadas manualmente.
+			var prueba= new triangulo(new coordenada(75,0),new coordenada(0,150),new coordenada(150,150)); 
+
+			context.beginPath();
+			context.moveTo(prueba.vertices[0].x,prueba.vertices[0].y);	//Acceso a las coordenadas alojadas en prueba
+			context.lineTo(prueba.vertices[1].x,prueba.vertices[1].y);
+			context.lineTo(prueba.vertices[2].x,prueba.vertices[2].y);
+			context.lineTo(prueba.vertices[0].x,prueba.vertices[0].y);
+			context.stroke();
+			context.fill();
+		}
 		</script>
 		
 	</head>
 	<body>
 		<h1>Probando Canvas :)</h1>
 		<button onclick="draw()">Dibuja</button>
+		<button onclick="draw_triangule()">Dibuja Triangulo</button>
 		<canvas id="canvas" width="500" height="500"></canvas>
 	</body>
 </html>
