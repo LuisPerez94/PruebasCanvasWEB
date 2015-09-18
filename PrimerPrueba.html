@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<title>Prueba Canvas</title>
 		<style type="text/css"> 
 			#canvas{
@@ -48,10 +49,13 @@
 			
 		}
 		function draw_triangule(){
+			
 			var canvas=document.getElementById('canvas');
 			var context=canvas.getContext('2d');
 			//Objecto triangulo inicializado con variables coordenadas inicializadas manualmente.
-			var prueba= new triangulo(new coordenada(75,0),new coordenada(0,150),new coordenada(150,150)); 
+			var prueba= new triangulo(new coordenada(qs['x1'],qs['y1']),
+									   new coordenada(qs['x2'],qs['y2']),
+									   new coordenada(qs['x3'],qs['y3'])); 
 
 			context.beginPath();
 			context.moveTo(prueba.vertices[0].x,prueba.vertices[0].y);	//Acceso a las coordenadas alojadas en prueba
@@ -61,6 +65,21 @@
 			context.stroke();
 			context.fill();
 		}
+		
+			
+		var qs = new Array();
+			function qs() {
+				var query = window.location.search.substring(1);
+				var parms = query.split('&');
+				for (var i=0; i<parms.length; i++) {
+				var pos = parms[i].indexOf('=');
+				if (pos > 0) {
+				var key = parms[i].substring(0,pos);
+				var val = parms[i].substring(pos+1);
+				qsParm[key] = val;
+						}
+					}
+				}
 		</script>
 		
 	</head>
@@ -69,5 +88,27 @@
 		<button onclick="draw()">Dibuja</button>
 		<button onclick="draw_triangule()">Dibuja Triangulo</button>
 		<canvas id="canvas" width="500" height="500"></canvas>
+		
+		<section id="botones">
+			
+			<form  action="draw_triangule()" method="GET" onsubmit="draw_triangule()">
+				<fieldset>
+				<h2>Dibuja un triángulo</h2>
+				<label>Coordenada 1 x:</label>
+				<input type="text" maxlength="2" name="x1" placeholder="primer punto x" required="true"><br/>
+				<label>Coordenada 1 y:</label>
+				<input type="text" maxlength="2" name="y1"  placeholder="primer punto y" required="true"> <br/>
+				<label>Coordenada 2 x:</label>
+				<input type="text" maxlength="2"name="x2"  placeholder="segundo punto x" required="true"><br/>
+				<label>Coordenada 2 y:</label>
+				<input type="text" maxlength="2" name="y2"  placeholder="segundo punto y" required="true"><br/>
+				<label>Coordenada 3 x:</label>
+				<input type="text" maxlength="2" name="x3"  placeholder="tercer punto x" required="true"><br/>
+				<label>Coordenada 3 y:</label>
+				<input type="text" maxlength="2" name="y3"  placeholder="tercer punto y" required="true"><br/>
+				<input type="submit" value="Dibujar">
+				</fieldset>
+			</form>
+		</section>
 	</body>
 </html>
